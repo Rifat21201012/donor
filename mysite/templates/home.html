@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1>blood Donation System</h1>
+<a href="{% url 'add-product' %}"> Donates Blood </a><br><br>
 {% for i in products %}
   {{i.gender}}
   {{i.age}}
