@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('products/', include('products.urls')),
     path('', include('myapp.urls')),
+    path('another/', views.another, name='another'),
 
 ]
