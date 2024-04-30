@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from products.models import Product
+from donors.models import Donor
 
 
 def home(request):
     products = Product.objects.all()
-    return render(request, 'home.html')
+    donors = Donor.objects.all()
+    return render(request, 'home.html', {
+        "products": products,
+        "donors": donors,
+    })
 
 
 def another(request):

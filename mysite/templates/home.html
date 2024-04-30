@@ -74,13 +74,10 @@
     {% endif %}
 
     <h2>Donate blood, Save Life</h2>
+    <a href="{% url 'add-donor' %}" class="btn"> Add Blood Request </a>
     <a href="{% url 'signup' %}" class="btn">Join as a Donor</a>
-    <button class="btn">Search Donor</button>
 
     <ul>
-        {% for i in products %}
-            <li>{{ i.gender }} - Age: {{ i.age }}</li>
-        {% endfor %}
     </ul>
 
 </div>
