@@ -25,5 +25,6 @@ urlpatterns = [
     path('donors/', include('donors.urls')),
     path('', include('myapp.urls')),
     path('another/', views.another, name='another'),
+    path('another_new/', views.another_new, name='another_new'),
 
 ]

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Availability</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #dc3545;
+        }
+        .donor-info {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .donor-info h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .donor-info p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Donor Availability</h1>
+    {% for product in products %}
+    <div class="donor-info">
+        <h2>{{ product.name }}</h2>
+        <p>Blood Group: {{ product.blood_group }}</p>
+        <p>Contact Number: {{ product.phone_number }}</p>
+    </div>
+    {% empty %}
+    <p>No donors available.</p>
+    {% endfor %}
+</div>
+
+</body>
+</html>
