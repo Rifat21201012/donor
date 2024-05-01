@@ -24,3 +24,12 @@ def another_new(request):
         "products": products,
         "donors": donors,
     })
+
+
+def another_second(request):
+    products = Product.objects.all()
+    donors = Donor.objects.all()
+    return render(request, 'home3.html', {
+        "products": products,
+        "donors": donors,
+    })

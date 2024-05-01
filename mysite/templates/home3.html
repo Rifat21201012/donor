@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Donation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px; /* Added padding for better spacing */
+            background-color: #f8f9fa;
+        }
+        .donor-info {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px; /* Added margin-bottom for better separation between donor entries */
+        }
+        .blood-group {
+            font-weight: bold;
+            color: #dc3545; /* Red color for blood group */
+        }
+        .quantity {
+            font-weight: bold;
+        }
+        .contact-info {
+            font-style: italic;
+            color: #007bff; /* Blue color for contact information */
+        }
+    </style>
+</head>
+<body>
+
+{% for i in donors %}
+    <div class="donor-info">
+        <p class="blood-group">Blood Group: {{ i.blood_group }}</p>
+        <p class="quantity">Quantity: {{ i.quantity }}</p>
+        <p>When Needed: {{ i.when_needed }}</p>
+        <p class="contact-info">Contact Number: {{ i.contact_number }}</p>
+        <p>Description: {{ i.description }}</p>
+    </div>
+{% endfor %}
+
+</body>
+</html>
