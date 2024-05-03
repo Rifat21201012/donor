@@ -6,71 +6,77 @@
     <title>Signup</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            background-image: url('blood_donation_background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .container {
-            width: 400px;
-            margin: 100px auto;
-            background-color: #fff;
+
+        .signup-form {
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
         }
-        h1 {
+
+        h2 {
             text-align: center;
+            margin-bottom: 20px;
             color: #333;
         }
+
         form {
-            margin-top: 20px;
+            text-align: center;
         }
-        input[type="text"],
-        input[type="password"] {
+
+        input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
-            margin: 8px 0;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 5px;
             box-sizing: border-box;
         }
+
         button[type="submit"] {
-            width: 100%;
             background-color: #dc3545;
             color: #fff;
-            padding: 10px;
             border: none;
-            border-radius: 4px;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
+
         button[type="submit"]:hover {
             background-color: #c82333;
         }
-        .signup-link {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-        }
-        .signup-link a {
-            color: #333;
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h1>Register</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirm_password" placeholder="Confirm Password">
-        <button type="submit">Register</button>
-        <p class="signup-link">Already have an account? <a href="{% url 'login' %}">Login</a></p>
-    </form>
-</div>
-
+    <div class="signup-form">
+        <h2>Sign Up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
 </body>
 </html>

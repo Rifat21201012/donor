@@ -15,7 +15,14 @@ def user_signup(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            # Get the username and password from the form
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']  # password1 is the first password field in UserCreationForm
+            # Authenticate the user
+            user = authenticate(request, username=username, password=password)
+            if user:
+                login(request, user)
+                return redirect('home')
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
